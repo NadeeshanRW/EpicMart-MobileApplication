@@ -2,8 +2,10 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:context=".Activity.loginActivity">
 
     <ImageView
         android:id="@+id/imageView"
@@ -91,11 +93,11 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/textView29"
+            android:id="@+id/Registerlink"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="Don't Remember password Recovery it "
+            android:text="@string/intro_Login"
             android:textAlignment="center" />
 
         <LinearLayout

@@ -2,5 +2,6 @@
     <string name="app_name">EpicMart</string>
     <string name="intro_title"><font color="#5b4cbc">Your Shopping </font> Destination for Everything</string>
     <string name="intro_text">Get personalized Recomendation \n Enjoy fast, free Delivery </string>
-    <string name="intro_signin" >Already have an acount ?<font color="#008b86" >sign in</font> </string>
+    <string name="intro_signin">Already have an acount ?<font color="#008b86">sign in</font> </string>
+    <string name="intro_Login">Dont have an acount ?<font color="#008b86">Register</font> </string>
 </resources>

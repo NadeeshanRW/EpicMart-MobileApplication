@@ -10,29 +10,30 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.Exsample.epicmart.R
 
-class introActivity : AppCompatActivity() {
+class signupActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_intro)
+        setContentView(R.layout.activity_signup)
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
-        var startbutton = findViewById<Button>(R.id.StartButton)
-        startbutton.setOnClickListener {
-            val Intent = Intent(this, signupActivity::class.java)
-            startActivity(Intent)
-        }
-
-        val textView = findViewById<TextView>(R.id.introloginlink)
+        val textView = findViewById<TextView>(R.id.loginpagelink)
         textView.setOnClickListener {
             val intent = Intent(this, loginActivity::class.java)
             startActivity(intent)
-
-
         }
+
+        var startbutton = findViewById<Button>(R.id.afterregistrationbutten)
+        startbutton.setOnClickListener {
+            val Intent = Intent(this, loginActivity::class.java)
+            startActivity(Intent)
+        }
+
+
+
     }
 }
