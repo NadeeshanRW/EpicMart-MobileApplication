@@ -8,10 +8,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModel
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
+import com.Exsample.epicmart.Adapter.BestSellerAdapter
 import com.Exsample.epicmart.Adapter.CategoryAdapter
 import com.Exsample.epicmart.Adapter.SliderAdapter
 import com.Exsample.epicmart.Model.CategoryModel
@@ -32,8 +35,20 @@ class HomeActivity : AppCompatActivity() {
 
     initBanner()
     initCategories()
+    initBestSeller()
+    }
+
+    private fun initBestSeller(){
+        binding.progressBarBestSeller.visibility=View.VISIBLE
+        viewModel.bestSeller.observe(this, Observer{
+            binding.ViewBestsell.layoutManager=GridLayoutManager(this,2)
+            binding.ViewBestsell.adapter=BestSellerAdapter(it)
+            binding.progressBarBestSeller.visibility=View.GONE
+        })
+        viewModel.loadBestSeller()
 
     }
+
 
     private fun initCategories() {
        binding.progressBarCategory.visibility = View.VISIBLE
