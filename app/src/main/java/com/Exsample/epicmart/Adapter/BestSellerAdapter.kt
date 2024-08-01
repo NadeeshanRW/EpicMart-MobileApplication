@@ -1,9 +1,11 @@
 package com.Exsample.epicmart.Adapter
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.Exsample.epicmart.Activity.DetailActivity
 import com.Exsample.epicmart.Model.ItemsModel
 import com.Exsample.epicmart.databinding.ViewholderBestselerBinding
 import com.bumptech.glide.Glide
@@ -38,6 +40,13 @@ class BestSellerAdapter(val items:MutableList<ItemsModel>):RecyclerView.Adapter<
             .load(items[position].picUrl[0])
             .apply(requstOption)
             .into(holder.binding.picbestseller)
+
+        holder.itemView.setOnClickListener{
+            val intent = Intent(holder.itemView.context,DetailActivity::class.java)
+            intent.putExtra("object", items[position])
+            holder.itemView.context.startActivity(intent)
+        }
+
 
     }
 
