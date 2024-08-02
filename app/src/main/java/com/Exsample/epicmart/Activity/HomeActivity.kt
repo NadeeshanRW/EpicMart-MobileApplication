@@ -1,5 +1,6 @@
 package com.Exsample.epicmart.Activity
 
+import android.content.Intent
 import android.media.Image
 import android.os.Bundle
 import android.view.View
@@ -36,6 +37,11 @@ class HomeActivity : AppCompatActivity() {
     initBanner()
     initCategories()
     initBestSeller()
+    bottomNavigation()
+    }
+
+    private fun bottomNavigation() {
+        binding.cartBtn.setOnClickListener{startActivity(Intent(this,CartActivity::class.java))}
     }
 
     private fun initBestSeller(){

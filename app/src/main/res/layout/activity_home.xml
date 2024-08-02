@@ -313,6 +313,8 @@
              </LinearLayout>
 
              <LinearLayout
+
+                 android:id="@+id/cartBtn"
                  android:layout_width="0dp"
                  android:layout_height="wrap_content"
                  android:layout_weight="0.2"
@@ -320,8 +322,8 @@
 
                  <ImageView
                      android:id="@+id/imageView37"
-                     android:layout_width="22dp"
-                     android:layout_height="22dp"
+                     android:layout_width="wrap_content"
+                     android:layout_height="wrap_content"
                      android:layout_gravity="center"
                      android:layout_marginTop="8dp"
                      app:srcCompat="@drawable/btn_3" />

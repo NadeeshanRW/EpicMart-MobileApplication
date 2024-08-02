@@ -1,5 +1,6 @@
 package com.Exsample.epicmart.Activity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.annotation.Size
@@ -64,6 +65,9 @@ class DetailActivity : AppCompatActivity() {
         binding.titleTxt.text =item.title
         binding.descriptionTxt.text =item.description
         binding.priceTxt.text ="$" + item.price
+        binding.ratingText.text="${item.rating}"
+
+
 
         binding.AddToCart.setOnClickListener{
             item.numberInCart = numberOrder
@@ -74,6 +78,7 @@ class DetailActivity : AppCompatActivity() {
         binding.backBtn.setOnClickListener{finish()}
         binding.CartBtn.setOnClickListener{
 
+            startActivity(Intent(this@DetailActivity,CartActivity::class.java))
         }
 
         Glide.with(this)
