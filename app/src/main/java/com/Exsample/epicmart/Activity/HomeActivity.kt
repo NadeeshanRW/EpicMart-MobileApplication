@@ -42,8 +42,13 @@ class HomeActivity : AppCompatActivity() {
     initCategories()
     initBestSeller()
     bottomNavigation()
+        profile()
     }
 
+
+    private fun profile() {
+        binding.profile.setOnClickListener{startActivity(Intent(this,loginActivity::class.java))}
+    }
     private fun bottomNavigation() {
         binding.cartBtn.setOnClickListener{startActivity(Intent(this,CartActivity::class.java))}
     }
