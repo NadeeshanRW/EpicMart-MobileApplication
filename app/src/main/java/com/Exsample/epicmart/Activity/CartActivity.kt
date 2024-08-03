@@ -1,8 +1,15 @@
 package com.Exsample.epicmart.Activity
 
+import android.Manifest
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.os.Build
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.core.app.NotificationCompat
+import androidx.core.app.NotificationManagerCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -27,6 +34,22 @@ class CartActivity : AppCompatActivity() {
         setVariable()
         initCartList()
         calculateCart()
+        chackout()
+    }
+
+    private fun chackout() {
+
+        binding.chackOutBtn.setOnClickListener{
+            startActivity(Intent(this, HomeActivity::class.java))
+
+        }
+        showNotification()
+
+
+
+
+
+
     }
 
     private fun calculateCart() {
@@ -58,5 +81,42 @@ class CartActivity : AppCompatActivity() {
     private fun setVariable(){
         binding.backBtn.setOnClickListener{finish()}
 
+
+
+
+
+
     }
+
+
+    private fun showNotification() {
+        val notificationId = 1
+        val channelId = "01"
+
+        val builder = NotificationCompat.Builder(this, channelId)
+            .setSmallIcon(R.drawable.bell) // Replace with your notification icon
+            .setContentTitle("Notification ")
+            .setContentText(("Your Order is Placed "))
+            .setPriority(NotificationCompat.PRIORITY_HIGH) // Set priority to high
+            .setAutoCancel(true)
+
+        val notificationManager = NotificationManagerCompat.from(this)
+
+        // Check if notification permission is granted
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            if (ActivityCompat.checkSelfPermission(this, Manifest.permission.POST_NOTIFICATIONS) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Request notification permission if not granted
+                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.POST_NOTIFICATIONS), 1)
+                return
+            }
+        }
+
+        notificationManager.notify(notificationId, builder.build())
+    }
+
+
+
+
+
+
 }

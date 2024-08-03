@@ -24,7 +24,11 @@ import com.Exsample.epicmart.R
 import com.Exsample.epicmart.ViewModel.MainViewModel
 import com.Exsample.epicmart.databinding.ActivityHomeBinding
 
+
+
+
 class HomeActivity : AppCompatActivity() {
+
 
 
     private val viewModel=MainViewModel()

@@ -6,7 +6,6 @@ import com.Exsample.epicmart.Helper.ChangeNumberItemsListener
 import com.Exsample.epicmart.Helper.TinyDB
 import com.Exsample.epicmart.Model.ItemsModel
 
-
 class ManagmentCart(val context: Context) {
 
     private val tinyDB = TinyDB(context)
@@ -26,7 +25,7 @@ class ManagmentCart(val context: Context) {
     }
 
     fun getListCart(): ArrayList<ItemsModel> {
-        return tinyDB.getListObject("CartList") ?: arrayListOf()
+        return tinyDB.getListObject("CartList")
     }
 
     fun minusItem(listItems: ArrayList<ItemsModel>, position: Int, listener: ChangeNumberItemsListener) {

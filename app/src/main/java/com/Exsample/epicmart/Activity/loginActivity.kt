@@ -14,8 +14,8 @@ import com.google.firebase.auth.FirebaseAuth
 
 class loginActivity : AppCompatActivity() {
 
-private  lateinit var binding: ActivityLoginBinding
-private lateinit var firebaseAuth: FirebaseAuth
+    private lateinit var binding: ActivityLoginBinding
+    private lateinit var firebaseAuth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,30 +27,28 @@ private lateinit var firebaseAuth: FirebaseAuth
 
         firebaseAuth = FirebaseAuth.getInstance()
 
-        binding.Registerlink.setOnClickListener{
-            val intent = Intent (this , signupActivity::class.java)
+        binding.Registerlink.setOnClickListener {
+            val intent = Intent(this, signupActivity::class.java)
             startActivity(intent)
         }
 
-        binding.button4.setOnClickListener{
+        binding.button4.setOnClickListener {
             val email = binding.editTextText.text.toString()
             val pass = binding.editTextTextPassword.text.toString()
 
 
 
-            if (email.isNotEmpty() && pass.isNotEmpty() ) {
+            if (email.isNotEmpty() && pass.isNotEmpty()) {
 
 
-                    firebaseAuth.signInWithEmailAndPassword(email , pass ).addOnCompleteListener {
-                        if (it.isSuccessful){
-                            val intent = Intent (this , HomeActivity ::class.java)
-                            startActivity(intent)
-                        }else{
-                            Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
-                        }
+                firebaseAuth.signInWithEmailAndPassword(email, pass).addOnCompleteListener {
+                    if (it.isSuccessful) {
+                        val intent = Intent(this, HomeActivity::class.java)
+                        startActivity(intent)
+                    } else {
+                        Toast.makeText(this, it.exception.toString(), Toast.LENGTH_SHORT).show()
                     }
-
-
+                }
 
 
             } else {
@@ -59,8 +57,8 @@ private lateinit var firebaseAuth: FirebaseAuth
 
 
         }
-
-
+    }
+}
 
 
 
@@ -88,5 +86,3 @@ private lateinit var firebaseAuth: FirebaseAuth
 
 
    //     }
-    }
-}
