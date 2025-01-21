@@ -2,14 +2,14 @@
 
 Application Features
 
-*1.User Authentication:
-*Firebase Authentication for login and signup.
-*Users can create a new account.
-*Password reset option.
+*1. User Authentication:
+  *Firebase Authentication for login and signup.
+  *Users can create a new account.
+  *Password reset option.
 
-*2Database Integration:
-*Use Firebase Firestore as a real-time database.
-*Store and retrieve product categories, items, user details, and cart data.
+*2. Database Integration:
+  *Use Firebase Firestore as a real-time database.
+  *Store and retrieve product categories, items, user details, and cart data.
 
 Shopping Features:
 
